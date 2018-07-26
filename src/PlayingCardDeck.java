@@ -1,28 +1,43 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import com.googlecode.lanterna.terminal.Terminal;
+
+import java.util.Random;
 
 public class PlayingCardDeck {
-    String[] färg = {"Diamonds", "Hearts", "Clovers", "Spades"};
-    String[] kort = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
-            "Nine", "Ten", "Pawn", "Queen", "King"};
+    private Playingcard[] deck;
+    private int currentCard;
 
-    String [][] kortlek = new String[14][4];
+    public PlayingCardDeck() {
+        String[] suits = {"Diamonds", "Hearts", "Clubs", "Spades"};
+        String[] faces = {"2", "3", "4", "5", "6", "7", "8",
+                "9", "10", "Jack", "Queen", "King", "Ace"};
+        deck = new Playingcard[52];
+        currentCard = 0;
 
+        for (int suit = 0; suit < 4; suit++)
+            for (int faceNum = 0; faceNum < 13; faceNum++) {
+                deck[(faceNum + (suit * 13))] = new Playingcard(faces[faceNum], suits[suit], faceNum + 2);
+            }
+    }
 
+    public void showDeck() {
+        for (Playingcard card : deck) {
+            System.out.println(card);
+        }
+    }
 
-
-    public String [][] createDeck(String[] f, String[] k) {
-        Array[][] deckOfCards = new Array[14][4];
-        int count = 1;
-        for (int i = 0; i < k.length; i++) {
-            for (int j = 0; j < f.length; j++)
-                deckOfCards[i][j] = deckOfCards[i][j];
+    public void shuffle() {
+        currentCard = 0;
+        Random randomNum = new Random();
+        for (int first = 0; first < deck.length; first++) {
+            int second = randomNum.nextInt(52);
+            Playingcard temp = deck[first];
+            deck[first] = deck[second];
+            deck[second]= temp;
 
         }
-        return deckOfCards;
     }
+
+
 }
 
 
