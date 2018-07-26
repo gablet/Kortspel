@@ -1,12 +1,12 @@
 public class Playingcard {
-    int valör;
-    String färg;
+    private String faceName;
+    private String Suit;
+    private int faceValue;
+    private boolean hidden;
 
-
-    public Playingcard(int valör, String färg) {
-        this.valör = valör;
-        this.färg = färg;
+    public Playingcard(String faceName, String suit, int faceValue) {
+        this.faceName = faceName;
+        Suit = suit;
+        this.faceValue = faceValue;
     }
-
-
 }
