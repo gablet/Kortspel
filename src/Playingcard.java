@@ -1,17 +1,17 @@
 public class Playingcard {
-    private String faceName;
+    private String cardName;
     private String suit;
-    private int faceValue;
+    private int cardValue;
     private boolean hidden;
 
 
-    public Playingcard(String face, String suit, int value) {
-        this.faceName = face;
+    public Playingcard(String name, String suit, int value) {
+        this.cardName = name;
         this.suit = suit;
-        this.faceValue = value;
+        this.cardValue = value;
     }
 
     public String toString() {
-        return faceName + " of " + suit;
+        return cardName + " of " + suit;
     }
 }
