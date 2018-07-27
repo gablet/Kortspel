@@ -26,25 +26,25 @@ public class PlayingCardDeck {
         this.deck.add(new Playingcard("Spades", "King", false, 48));
 
         this.deck.add(new Playingcard("Hearts", "Ace", false, 51));
-        this.deck.add(new Playingcard("Hearts", "2", false, 52));
-        this.deck.add(new Playingcard("Hearts", "3", false, 52));
-        this.deck.add(new Playingcard("Hearts", "4", false, 52));
-        this.deck.add(new Playingcard("Hearts", "5", false, 52));
-        this.deck.add(new Playingcard("Hearts", "6", false, 52));
-        this.deck.add(new Playingcard("Hearts", "7", false, 52));
-        this.deck.add(new Playingcard("Hearts", "8", false, 23));
-        this.deck.add(new Playingcard("Hearts", "9", false, 27));
-        this.deck.add(new Playingcard("Hearts", "10", false, 31));
-        this.deck.add(new Playingcard("Hearts", "Jack", false, 35));
-        this.deck.add(new Playingcard("Hearts", "Queen", false, 39));
-        this.deck.add(new Playingcard("Hearts", "King", false, 43));
+        this.deck.add(new Playingcard("Hearts", "2", false, 3));
+        this.deck.add(new Playingcard("Hearts", "3", false, 7));
+        this.deck.add(new Playingcard("Hearts", "4", false, 11));
+        this.deck.add(new Playingcard("Hearts", "5", false, 15));
+        this.deck.add(new Playingcard("Hearts", "6", false, 19));
+        this.deck.add(new Playingcard("Hearts", "7", false, 23));
+        this.deck.add(new Playingcard("Hearts", "8", false, 27));
+        this.deck.add(new Playingcard("Hearts", "9", false, 31));
+        this.deck.add(new Playingcard("Hearts", "10", false, 35));
+        this.deck.add(new Playingcard("Hearts", "Jack", false, 39));
+        this.deck.add(new Playingcard("Hearts", "Queen", false, 43));
+        this.deck.add(new Playingcard("Hearts", "King", false, 47));
 
         this.deck.add(new Playingcard("Diamonds", "Ace", false, 50));
-        this.deck.add(new Playingcard("Diamonds", "2", false, 52));
-        this.deck.add(new Playingcard("Diamonds", "3", false, 52));
-        this.deck.add(new Playingcard("Diamonds", "4", false, 52));
-        this.deck.add(new Playingcard("Diamonds", "5", false, 52));
-        this.deck.add(new Playingcard("Diamonds", "6", false, 52));
+        this.deck.add(new Playingcard("Diamonds", "2", false, 2));
+        this.deck.add(new Playingcard("Diamonds", "3", false, 6));
+        this.deck.add(new Playingcard("Diamonds", "4", false, 10));
+        this.deck.add(new Playingcard("Diamonds", "5", false, 14));
+        this.deck.add(new Playingcard("Diamonds", "6", false, 18));
         this.deck.add(new Playingcard("Diamonds", "7", false, 22));
         this.deck.add(new Playingcard("Diamonds", "8", false, 26));
         this.deck.add(new Playingcard("Diamonds", "9", false, 30));
@@ -54,11 +54,11 @@ public class PlayingCardDeck {
         this.deck.add(new Playingcard("Diamonds", "King", false, 46));
 
         this.deck.add(new Playingcard("Clubs", "Ace", false, 49));
-        this.deck.add(new Playingcard("Clubs", "2", false, 52));
-        this.deck.add(new Playingcard("Clubs", "3", false, 52));
-        this.deck.add(new Playingcard("Clubs", "4", false, 52));
-        this.deck.add(new Playingcard("Clubs", "5", false, 52));
-        this.deck.add(new Playingcard("Clubs", "6", false, 52));
+        this.deck.add(new Playingcard("Clubs", "2", false, 1));
+        this.deck.add(new Playingcard("Clubs", "3", false, 5));
+        this.deck.add(new Playingcard("Clubs", "4", false, 9));
+        this.deck.add(new Playingcard("Clubs", "5", false, 13));
+        this.deck.add(new Playingcard("Clubs", "6", false, 17));
         this.deck.add(new Playingcard("Clubs", "7", false, 21));
         this.deck.add(new Playingcard("Clubs", "8", false, 25));
         this.deck.add(new Playingcard("Clubs", "9", false, 29));
@@ -79,9 +79,11 @@ public class PlayingCardDeck {
     public void shuffle() {
         Collections.shuffle(this.deck);
     }
+
     public Playingcard dealCard() {
-       return deck.remove(0);
+        return this.deck.remove(0);
     }
+
 }
 
 
