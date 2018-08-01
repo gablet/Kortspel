@@ -1,9 +1,5 @@
-import javafx.print.PageLayout;
-
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Random;
 
 public class PlayingCardDeck {
     private ArrayList<Playingcard> deck;
@@ -11,7 +7,7 @@ public class PlayingCardDeck {
     public PlayingCardDeck() {
         this.deck = new ArrayList();
 
-        this.deck.add(new Playingcard("Spades", "Ace", false, 52));
+
         this.deck.add(new Playingcard("Spades", "2", false, 4));
         this.deck.add(new Playingcard("Spades", "3", false, 8));
         this.deck.add(new Playingcard("Spades", "4", false, 12));
@@ -24,8 +20,9 @@ public class PlayingCardDeck {
         this.deck.add(new Playingcard("Spades", "Jack", false, 40));
         this.deck.add(new Playingcard("Spades", "Queen", false, 44));
         this.deck.add(new Playingcard("Spades", "King", false, 48));
+        this.deck.add(new Playingcard("Spades", "Ace", false, 52));
 
-        this.deck.add(new Playingcard("Hearts", "Ace", false, 51));
+
         this.deck.add(new Playingcard("Hearts", "2", false, 3));
         this.deck.add(new Playingcard("Hearts", "3", false, 7));
         this.deck.add(new Playingcard("Hearts", "4", false, 11));
@@ -38,8 +35,8 @@ public class PlayingCardDeck {
         this.deck.add(new Playingcard("Hearts", "Jack", false, 39));
         this.deck.add(new Playingcard("Hearts", "Queen", false, 43));
         this.deck.add(new Playingcard("Hearts", "King", false, 47));
+        this.deck.add(new Playingcard("Hearts", "Ace", false, 51));
 
-        this.deck.add(new Playingcard("Diamonds", "Ace", false, 50));
         this.deck.add(new Playingcard("Diamonds", "2", false, 2));
         this.deck.add(new Playingcard("Diamonds", "3", false, 6));
         this.deck.add(new Playingcard("Diamonds", "4", false, 10));
@@ -52,8 +49,8 @@ public class PlayingCardDeck {
         this.deck.add(new Playingcard("Diamonds", "Jack", false, 38));
         this.deck.add(new Playingcard("Diamonds", "Queen", false, 42));
         this.deck.add(new Playingcard("Diamonds", "King", false, 46));
+        this.deck.add(new Playingcard("Diamonds", "Ace", false, 50));
 
-        this.deck.add(new Playingcard("Clubs", "Ace", false, 49));
         this.deck.add(new Playingcard("Clubs", "2", false, 1));
         this.deck.add(new Playingcard("Clubs", "3", false, 5));
         this.deck.add(new Playingcard("Clubs", "4", false, 9));
@@ -66,7 +63,7 @@ public class PlayingCardDeck {
         this.deck.add(new Playingcard("Clubs", "Jack", false, 37));
         this.deck.add(new Playingcard("Clubs", "Queen", false, 41));
         this.deck.add(new Playingcard("Clubs", "King", false, 45));
-
+        this.deck.add(new Playingcard("Clubs", "Ace", false, 49));
     }
 
 
@@ -83,7 +80,9 @@ public class PlayingCardDeck {
     public Playingcard dealCard() {
         return this.deck.remove(0);
     }
-
+    public void addCardToDeck(Playingcard c) {
+     this.deck.add(c);
+    }
 }
 
 

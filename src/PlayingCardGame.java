@@ -2,18 +2,19 @@ import java.io.*;
 import java.util.Scanner;
 
 public class PlayingCardGame {
-    public PlayingCardDeck deck;
-    String Player;
-    String Computer;
+    private PlayingCardDeck deck;
+    private String Player;
+    private int wins;
+    private int losses;
 
 
     public PlayingCardGame() throws IOException {
         this.deck = new PlayingCardDeck();
         startMenu();
+
     }
 
     public void startMenu() throws IOException {
-
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome! \nTo start the game, chose one of the following options");
         System.out.println("1.To Start the game \n2.For Rules \n3.To see High scores\n4.To exit the game");
@@ -62,7 +63,8 @@ public class PlayingCardGame {
     }
 
     public void startGame() throws IOException {
-        int score = 0;
+        wins = 0;
+        losses =0;
         int counts = 0;
         deck.shuffle();
         System.out.println("Shuffeling the cards..");
@@ -71,33 +73,73 @@ public class PlayingCardGame {
         int deal = i.nextInt();
         if (deal == 1) {
             while (counts < 5) {
-
-                System.out.println("Your card is " + deck.dealCard() + "\nThe Computerscard is .....");
+                Playingcard computerCard = deck.dealCard();
+                Playingcard playerCard = deck.dealCard();
+                System.out.println("\nThe computers card is " + computerCard.toString() + "\nYour card is .....\n");
                 System.out.println("Is your card greater or lower than the computers?\n" +
                         "1. To guess greater than\n2.To guess lower than");
-                if (deck.dealCard().getPrio() < x) {
-
-                    counts++;
-                } else if (x > y) {
-                    counts++;
+                Scanner g = new Scanner(System.in);
+                int guess = g.nextInt();
+                if (guess == 1) { // guess that your card is greater
+                    if (computerCard.getPrio() > playerCard.getPrio()) {
+                        System.out.println("Correct");
+                        System.out.println("Your card is " + playerCard.toString());
+                        wins++;
+                        counts++;
+                        deck.addCardToDeck(computerCard);
+                        deck.addCardToDeck(playerCard);
+                    } else if (computerCard.getPrio() < playerCard.getPrio()) {
+                        System.out.println("\nWrong!");
+                        System.out.println("Your card is " + playerCard.toString());
+                        losses++;
+                        counts++;
+                        deck.addCardToDeck(computerCard);
+                        deck.addCardToDeck(playerCard);
+                    }
+                }
+                else if (guess == 2) {
+                    if (computerCard.getPrio() > playerCard.getPrio()) {
+                        System.out.println("\nCorrect!");
+                        System.out.println("Your card is " + computerCard.toString());
+                        wins++;
+                        counts++;
+                        deck.addCardToDeck(computerCard);
+                        deck.addCardToDeck(playerCard);
+                    } else if (computerCard.getPrio() < playerCard.getPrio()) {
+                        System.out.println("\nWrong!");
+                        System.out.println("Your card card is " + playerCard.toString());
+                        counts++;
+                        losses ++;
+                        deck.addCardToDeck(computerCard);
+                        deck.addCardToDeck(playerCard);
+                    }
+                }
+                else {
+                    System.out.println("Wrong choice, try again");
                 }
             }
-            System.out.println("Game Over!\nYour score is " + score);
+            System.out.println("\nGame Over!\nYou got " + wins + " wins! and "+ losses + " losses");
             System.out.println("Type your name to save your score");
-
-            System.out.println("Type in your name");
             Scanner p = new Scanner(System.in);
             Player = p.next();
-            HighScore(Player, score);
-
+            HighScore(Player, wins,losses);
+            System.out.println("\nWould you like to play again?\n1.To start a new game\n2.Go back to main menu");
+            Scanner ng = new Scanner(System.in);
+            int newgame = ng.nextInt();
+            if(newgame ==1){
+                startGame();
+            }
+            else if(newgame==2){
+                startMenu();
+            }
         }
     }
 
-    public void HighScore(String name, int score) throws IOException {
+    public void HighScore(String name, int win,int loss) throws IOException {
         PrintWriter stats = new PrintWriter(new BufferedWriter
                 (new FileWriter("C:\\Users\\Administrator\\Documents\\javamapp\\Kortspel\\src\\HighScore.txt", true)));
 
-        stats.println("Name: " + name + " Score: " + score + "\n");
+        stats.println(name + "\nWins: " + win + "\nLosses:" + loss);
         stats.close();
     }
 
