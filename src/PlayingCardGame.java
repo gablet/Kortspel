@@ -46,7 +46,7 @@ public class PlayingCardGame {
         } else if (input == 4) {
             System.exit(0);
         }
-        System.out.println("1. Start the game \n2. To exit");
+        System.out.println("\n1.Start the game \n2. To exit");
         Scanner s = new Scanner(System.in);
         int in = s.nextInt();
         if (in == 1) {
@@ -81,14 +81,14 @@ public class PlayingCardGame {
                 Scanner g = new Scanner(System.in);
                 int guess = g.nextInt();
                 if (guess == 1) { // guess that your card is greater
-                    if (computerCard.getPrio() > playerCard.getPrio()) {
+                    if (computerCard.getPrio() < playerCard.getPrio()) {
                         System.out.println("Correct");
                         System.out.println("Your card is " + playerCard.toString());
                         wins++;
                         counts++;
                         deck.addCardToDeck(computerCard);
                         deck.addCardToDeck(playerCard);
-                    } else if (computerCard.getPrio() < playerCard.getPrio()) {
+                    } else if (computerCard.getPrio() > playerCard.getPrio()) {
                         System.out.println("\nWrong!");
                         System.out.println("Your card is " + playerCard.toString());
                         losses++;
@@ -100,7 +100,7 @@ public class PlayingCardGame {
                 else if (guess == 2) {
                     if (computerCard.getPrio() > playerCard.getPrio()) {
                         System.out.println("\nCorrect!");
-                        System.out.println("Your card is " + computerCard.toString());
+                        System.out.println("Your card is " + playerCard.toString());
                         wins++;
                         counts++;
                         deck.addCardToDeck(computerCard);

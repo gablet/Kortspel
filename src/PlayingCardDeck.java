@@ -80,8 +80,9 @@ public class PlayingCardDeck {
     public Playingcard dealCard() {
         return this.deck.remove(0);
     }
+
     public void addCardToDeck(Playingcard c) {
-     this.deck.add(c);
+        this.deck.add(c);
     }
 }
 
