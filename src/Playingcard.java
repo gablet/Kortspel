@@ -12,7 +12,12 @@ public class Playingcard {
     }
 
     public String getSuit() {
-        return suit;
+        if(!hidden) {
+            return suit;
+        }
+        else{
+            return "?";
+        }
     }
 
     public boolean isHidden() {
@@ -24,7 +29,11 @@ public class Playingcard {
     }
 
     public String getValue() {
-        return value;
+        if (!hidden) {
+            return value;
+        } else {
+            return "?";
+        }
     }
 
     public int getPrio() {
@@ -32,6 +41,6 @@ public class Playingcard {
     }
 
     public String toString() {
-        return value + " of " + suit;
+        return getValue() + " of " + getSuit();
     }
 }
